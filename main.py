@@ -63,9 +63,9 @@ plastico = []
 vidro = []
 metal = []
 madeira = []
-    
+
+print('Bem Vindo!')
 while True:
-    print('Bem Vindo!')
     #Definindo mensagem de erro
     msg_erro = ' '.join(opcoes)
     msg_erro = f'Insira uma das opções\n{msg_erro}'
