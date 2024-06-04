@@ -37,7 +37,7 @@ def adicionar_lixo(tipo, lista):
 #Remove um lixo de uma lista
 def remover_lixo(tipo, lista):
     #Armazenando o que foi digitado no input
-    lixo = input(f'Digite o lixo de {tipo} encontrado: ')
+    lixo = input(f'Digite o lixo de {tipo} para ser removido: ')
 
     #Verifica se o que foi digitado não é um número
     while lixo.isnumeric():
@@ -70,26 +70,25 @@ while True:
     msg_erro = ' '.join(opcoes)
     msg_erro = f'Insira uma das opções\n{msg_erro}'
 
-    while True:
-        #Armazenando o que foi digitado no input
+    #Armazenando o que foi digitado no input
+    opcao = input('Digite o tipo do lixo encontrado\n-> ')
+            
+    #Força a digitar somente os tipos de lixo presentes na lista
+    while not tipos_lixo(opcoes, opcao):
+        print(msg_erro)
         opcao = input('Digite o tipo do lixo encontrado\n-> ')
             
-        #Força a digitar somente os tipos de lixo presentes na lista
-        while not tipos_lixo(opcoes, opcao):
-            print(msg_erro)
-            opcao = input('Digite o tipo do lixo encontrado\n-> ')
+    #Verifica qual será a modificada
+    acao = input('O que deseja fazer hoje\nAdicionar dados\nRemover dados\n-> ')
+    if acao == 'Adicionar' or acao == 'adicionar':
+        adicao(opcao)
+    else:
+        remocao(opcao)
             
-        #Verifica qual será a modificada
-        acao = input('O que deseja fazer hoje\nAdicionar dados\nRemover dados\n-> ')
-        if acao == 'Adicionar' or acao == 'adicionar':
-            adicao(opcao)
-        else:
-            remocao(opcao)
-            
-        #Verifica se quer continuar
-        continuar = input('Deseja continuar: ')  
+    #Verifica se quer continuar
+    continuar = input('Deseja continuar: ')  
         
-        if continuar == 'Sair' or continuar == 'sair':
-            print('Obrigado pela visita')
-            break
+    if continuar == 'Não' or continuar == 'não':
+        print('Obrigado pela visita')
+        break
         
